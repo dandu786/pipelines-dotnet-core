@@ -34,7 +34,7 @@ steps:
   inputs:
     command: build
     projects: '**/*.csproj'
-    arguments: '--configuration Release' # Update this to match your need
+    #arguments: '--configuration Release' # Update this to match your need
 
 #steps:
 - task: DotNetCoreCLI@2
@@ -74,7 +74,7 @@ steps:
 #steps:
 # ...
 # do this after your tests have run
-- script: dotnet test <test-project> --logger trx --collect "Code coverage"
+# script: dotnet test <test-project> --logger trx --collect "Code coverage"
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
