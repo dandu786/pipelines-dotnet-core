@@ -24,22 +24,6 @@ steps:
     version: '2.2.x'
     packageType: runtime
 
-- task: DotNetCoreCLI@2
-  displayName: Build
-  inputs:
-    command: build
-    projects: '**/*.csproj'
-    #arguments: '--configuration Release' # Update this to match your need
-
-#steps:
-- task: DotNetCoreCLI@2
-  displayName: 'Install dotnetsay'
-  inputs:
-    command: custom
-    custom: tool
-    arguments: 'install -g dotnetsay'
-#steps:
-# ...
 # do this after other tasks such as building
 - task: DotNetCoreCLI@2
   inputs:
@@ -60,24 +44,3 @@ steps:
     pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     artifactName: 'DEV-TEST'
 
-# do this near the end of your pipeline in most cases
-- script: dotnet pack /p:PackageVersion=$(version)  # define version variable elsewhere in your pipeline
-#steps:
-# ...
-# do this after you've built your app, near the end of your pipeline in most cases
-# for example, you do this before you deploy to an Azure web app on Windows
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
-    # do this before your build tasks
-#steps:
-- task: DotNetCoreCLI@2
-  inputs:
-    command: restore
-    projects: '**/*.csproj'
-    feedsToUse: config
-    nugetConfigPath: NuGet.config    # Relative to root of the repository
-    #externalFeedCredentials: 'https://github.com/dandu786/pipelines-dotnet-core'
