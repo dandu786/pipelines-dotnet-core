@@ -19,6 +19,7 @@ steps:
   inputs:
     azureSubscription: 'Azure subscription 1(14724541-0606-4f8b-a423-14c0baf918fe)'
     appType: 'webApp'
-    appName: 'dandu'
+    appName: 'DEV09'
     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
     deploymentMethod: 'auto'
+
