@@ -72,14 +72,6 @@ steps:
 
 # do this near the end of your pipeline in most cases
 - script: dotnet pack /p:PackageVersion=$(version)  # define version variable elsewhere in your pipeline
-- task: NuGetCommand@2
-  inputs:
-    command: push
-    nuGetFeedType: external
-    publishFeedCredentials: 'dandu786'
-    versioningScheme: byEnvVar
-    versionEnvVar: version
-
 #steps:
 # ...
 # do this after you've built your app, near the end of your pipeline in most cases
