@@ -32,7 +32,7 @@ steps:
     projects: '**/*.csproj'
     feedsToUse: config
     nugetConfigPath: NuGet.config    # Relative to root of the repository
-    externalFeedCredentials: 'https://github.com/dandu786/pipelines-dotnet-core'
+    #externalFeedCredentials: 'https://github.com/dandu786/pipelines-dotnet-core'
 #steps:
 - task: DotNetCoreCLI@2
   displayName: Build
